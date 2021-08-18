@@ -22,17 +22,26 @@ include_once('layout/header.php');
                         if ($_GET["error"] == "emptyinput") {
                             echo '<div class="alert alert-primary" role="alert">Please fill in all fields</div>';
                         }
+                        if ($_GET["error"] == "invalidemail") {
+                            echo '<div class="alert alert-danger" role="alert">E-mail is incorrect</div>';
+                        }
+                        if ($_GET["error"] == "invalidpassword") {
+                            echo '<div class="alert alert-danger" role="alert">Password is incorrect</div>';
+                        }
+                        if ($_GET["error"] == "success") {
+                            echo '<div class="alert alert-success" role="alert">Details are all correct</div>';
+                        }
                     }
                     ?>
                     
                     <form id="loginForm" action="/php/login.php" method="POST">
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="email" id="loginFormEmail" placeholder="name@example.com" >
+                            <input class="form-control" type="email" id="loginFormEmail" name="loginEmail" placeholder="name@example.com" required>
                             <label for="loginFormEmail">Email address</label>
                             <small id="emailHelp" class="form-text text-muted">Your email will not be shared with anyone else.</small>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="password" id="loginFormPassword" placeholder="Password" >
+                            <input class="form-control" type="password" id="loginFormPassword" name="loginPassword" placeholder="Password" required>
                             <label for="loginFormPassword">Password</label>
                         </div>
                         <div class="checkbox mb-3">
